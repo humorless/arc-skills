@@ -1,10 +1,9 @@
 ---
 name: refactor-polylith
 description: >
-  Scan the specified codebase or directory for violations of the principle that
-  code boundaries and deployment boundaries should be independent decisions.
-  Identifies copy-paste sharing, premature service extraction, and boundary
-  misalignment.
+  Use when the same business logic appears in multiple services, or when a
+  service was created solely to share code rather than for operational reasons.
+  Specify a path to scan.
 argument-hint: <path or directory to scan>
 ---
 

@@ -1,8 +1,8 @@
 ---
 name: arc
 description: >
-  Agent Ready Codebase (ARC) — six structural principles that keep a codebase
-  legible and navigable for AI agents. Load once; follow throughout the session.
+  Use when writing or reviewing code in an ARC-compliant codebase, or when
+  establishing structural rules for a new session. Load at session start.
 ---
 
 # ARC — Agent Ready Codebase
@@ -97,34 +97,7 @@ service/repository/adapter layers, not scattered through domain logic.
 
 ---
 
-## 4. Container / Presenter Separation
-
-**Applies to:** codebases with a UI component layer (React, Vue, Svelte,
-ClojureScript/Reagent, etc.).
-**Skip if:** no UI layer is present.
-
-### Rules
-
-- Every UI component belongs to exactly one category: **container** or
-  **presenter**. Never mix both responsibilities in a single component.
-- A **presenter** renders UI from props only. It knows nothing about where data
-  comes from, how it is fetched, or what happens after a user interaction beyond
-  calling a callback it was given.
-- A **container** owns data fetching, state management, and business logic. It
-  knows nothing about how things look. Its only rendering job is to pass data
-  down to a presenter.
-- When modifying an existing mixed component, prefer splitting it rather than
-  extending the mixing further.
-
-### Violation signals
-
-- A component both fetches data and renders detailed UI.
-- A presenter component contains conditional logic based on fetched state.
-- A container component contains layout or styling decisions.
-
----
-
-## 5. Policy / Mechanism Separation
+## 4. Policy / Mechanism Separation
 
 **Applies to:** all codebases.
 
@@ -153,6 +126,33 @@ ClojureScript/Reagent, etc.).
 - A generic-looking function that silently assumes a specific domain context.
 - Tests that can only be written by mocking business state rather than passing
   plain values.
+
+---
+
+## 5. Container / Presenter Separation
+
+**Applies to:** codebases with a UI component layer (React, Vue, Svelte,
+ClojureScript/Reagent, etc.).
+**Skip if:** no UI layer is present.
+
+### Rules
+
+- Every UI component belongs to exactly one category: **container** or
+  **presenter**. Never mix both responsibilities in a single component.
+- A **presenter** renders UI from props only. It knows nothing about where data
+  comes from, how it is fetched, or what happens after a user interaction beyond
+  calling a callback it was given.
+- A **container** owns data fetching, state management, and business logic. It
+  knows nothing about how things look. Its only rendering job is to pass data
+  down to a presenter.
+- When modifying an existing mixed component, prefer splitting it rather than
+  extending the mixing further.
+
+### Violation signals
+
+- A component both fetches data and renders detailed UI.
+- A presenter component contains conditional logic based on fetched state.
+- A container component contains layout or styling decisions.
 
 ---
 

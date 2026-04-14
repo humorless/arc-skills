@@ -1,9 +1,9 @@
 ---
 name: refactor-container-presenter
 description: >
-  Scan the specified files or directory for violations of the Container/Presenter
-  Separation principle, and report findings with concrete refactoring suggestions.
-  Applies only to codebases with a UI component layer.
+  Use when UI components are mixing data-fetching with rendering, or when adding
+  features makes a component increasingly hard to test or reason about. Applies
+  only to codebases with a UI component layer.
 argument-hint: <path or file to scan>
 ---
 

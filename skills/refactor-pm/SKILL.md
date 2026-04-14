@@ -1,9 +1,8 @@
 ---
 name: refactor-pm
 description: >
-  Scan the specified files or directory for opportunities to improve
-  mechanism/policy separation. Reports mixed code, extraction candidates,
-  misplaced policy, proposed refactorings, and unit test opportunities.
+  Use when a file or module mixes business decisions with reusable logic,
+  making it hard to test or reuse independently. Specify a path to scan.
 argument-hint: <path or file to scan>
 ---
 
